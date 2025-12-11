@@ -17,7 +17,7 @@ import os
 
 st.set_page_config(layout="wide", page_title="Prediksi Harga BBRI H+1")
 
-st.title("Prediksi Harga Saham BBRI H+1 — Dengan Model Tersimpan (joblib)")
+st.title("Prediksi Harga Saham BBRI H+1")
 
 # ------------ Sidebar -------------
 uploaded_file = st.sidebar.file_uploader("Upload file CSV (open, high, low, close, volume)", type=["csv"])
@@ -94,7 +94,7 @@ def models_exist():
     return all(os.path.exists(p) for p in MODEL_FILES.values())
 
 if models_exist():
-    st.success("📦 Model ditemukan, sedang dimuat...")
+    st.success("Model ditemukan, sedang dimuat...")
     scaler = joblib.load(MODEL_FILES["scaler"])
     models = {
         "Linear Regression": joblib.load(MODEL_FILES["lr"]),
@@ -103,7 +103,7 @@ if models_exist():
     }
 
 else:
-    st.warning("⚠️ Model belum ada. Melatih model baru...")
+    st.warning("Model belum ada. Melatih model baru...")
 
     scaler = StandardScaler()
     X_train_scaled = scaler.fit_transform(X_train)
@@ -128,7 +128,7 @@ else:
     joblib.dump(rf, MODEL_FILES["rf"])
     joblib.dump(svr, MODEL_FILES["svr"])
 
-    st.success("✅ Model baru berhasil dilatih & disimpan.")
+    st.success("Model baru berhasil dilatih & disimpan.")
 
 # ------------ Prediction test set -------------
 X_train_scaled = scaler.transform(X_train)
