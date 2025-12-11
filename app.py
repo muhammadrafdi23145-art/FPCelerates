@@ -75,8 +75,9 @@ y = df["Target_Return"]
 
 test_size = st.sidebar.slider("Test size", 0.1, 0.4, 0.2, 0.05)
 
-X_train, X_test, y_train, y_test =
-train_test_split(X, y, test_size=test_size, shuffle=False)
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=test_size, shuffle=False
+)
 
 test_dates = df.loc[X_test.index, "timestamp"]
 test_price_today_log = df.loc[X_test.index, "Close_Log"]
