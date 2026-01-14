@@ -15,9 +15,9 @@ from sklearn.model_selection import train_test_split
 import joblib
 import os
 
-st.set_page_config(layout="wide", page_title="Prediksi Harga BBRI H+1")
+st.set_page_config(layout="wide", page_title="Prediksi Harga Saham")
 
-st.title("Prediksi Harga Saham BBRI H+1")
+st.title("Prediksi Harga Saham")
 
 # ------------ Sidebar -------------
 uploaded_file = st.sidebar.file_uploader("Upload file CSV (open, high, low, close, volume)", type=["csv"])
